@@ -78,6 +78,8 @@ module IronCore
 
       rest_options = {:gem => http_gem}
       rest_options[:http_proxy] = options[:http_proxy] if options[:http_proxy]
+      rest_options[:timeout] = -1
+      rest_options[:open_timeout] = -1
       @rest = Rest::Client.new(rest_options)
 
       if self.keystone && self.keystone.is_a?(Hash)
